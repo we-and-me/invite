@@ -299,7 +299,7 @@ footer .url:hover{text-decoration:underline}
       </div>
       <script>(function(){var c=document.querySelector(".count");if(!c)return;var end=new Date(c.dataset.end);function p(n){return(n<10?"0":"")+n}
       function t(){var s=Math.floor((end-new Date())/1000);if(s<=0){c.innerHTML='<span class="ct">This offer has ended.</span>';return}
-      c.querySelector("[data-d]").textContent=Math.floor(s/86400);c.querySelector("[data-h]").textContent=p(Math.floor(s%86400/3600));
+      var d=Math.floor(s/86400),de=c.querySelector("[data-d]");de.textContent=d;de.nextElementSibling.textContent=d===1?"day":"days";c.querySelector("[data-h]").textContent=p(Math.floor(s%86400/3600));
       c.querySelector("[data-m]").textContent=p(Math.floor(s%3600/60));c.querySelector("[data-s]").textContent=p(s%60);setTimeout(t,1000)}t()})();</script>
 
       <div class="promise">
