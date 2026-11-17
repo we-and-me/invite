@@ -116,6 +116,15 @@ html,body{margin:0;padding:0;background:#fff}
 @media (prefers-reduced-motion:reduce){#cs-invite .cs-eb-dot,#cs-invite .cs-eb-clock b.tick,#cs-invite .cs-form.cs-glow{animation:none}#cs-invite .cs-dock{transition:none}}
 
 /* Final launch additions (Nov 17, 2026) */
+@media (min-width:1000px){#cs-invite .cs-eb-msg{max-width:none;white-space:nowrap}#cs-invite .cs-eb-in{max-width:1100px}}
+#cs-invite .cs-buy-h{font-family:'ITC Avant Garde Gothic Pro','Avant',sans-serif;font-weight:700;font-size:22px!important;line-height:1.2!important;color:var(--ink);margin:0 0 12px!important}
+#cs-invite .cs-buy-list{list-style:none;margin:0 0 18px!important;padding:0!important}
+#cs-invite .cs-buy-list li{position:relative;padding-left:28px;margin:0 0 6px;font-size:16.5px;color:var(--body)}
+#cs-invite .cs-buy-list li::before{content:"";position:absolute;left:2px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-4.8' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+#cs-invite .cs-price-l{margin:12px 0 2px!important;font-weight:800;font-size:16px!important;color:var(--ink);text-align:center}
+#cs-invite .cs-price-l span{font-weight:600;color:var(--muted)}
+#cs-invite .cs-buy .cs-fine{text-align:center}
+#cs-invite.cs-closed .cs-price-l,#cs-invite.cs-closed .cs-buy-list{display:none!important}
 #cs-invite .cs-section{padding-block:84px 0}
 #cs-invite .cs-band{margin-top:84px;padding-block:64px 68px}
 #cs-invite .cs-frames{padding-block:60px 0}
@@ -174,9 +183,10 @@ html,body{margin:0;padding:0;background:#fff}
         <p class="cs-sub">The only summit where connection&nbsp;<em>is</em>&nbsp;the&nbsp;content.</p>
         <div class="cs-buy">
           <span class="cs-once">Only happens once a year</span>
-          <p class="cs-price"><b>$997</b> <small>$4,083 total value</small> <span>Full pass, all three days</span></p>
-          <p class="cs-buy-l">Every session recorded, the Fieldbook shipped to your door, and a 100% satisfaction guarantee.</p>
+          <p class="cs-buy-h">Full pass: all three days, December&nbsp;9&nbsp;to&nbsp;11</p>
+          <ul class="cs-buy-list"><li>Every session recorded</li><li>The Liberating Structures Fieldbook, shipped to you</li><li>100% satisfaction guarantee</li></ul>
           <a class="cs-btn" data-checkout href="https://connectors.circle.so/checkout/connectors-summit-2026?coupon_code=LUCKY2BILL">Get my ticket</a>
+          <p class="cs-price-l">$997 for the full pass <span>($4,083 total value)</span></p>
           <p class="cs-fine"><strong data-after="Registration for 2026 has closed." data-today="Registration closes today at 5 PM ET.">Registration closes Friday, Nov 20 at 5 PM ET.</strong> <span class="cs-left" hidden></span></p>
         </div>
       </div>
