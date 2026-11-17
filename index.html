@@ -63,6 +63,8 @@ section{padding-block:72px}
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--blue);color:var(--white)}
 .bar .wrap{display:flex;align-items:center;justify-content:center;gap:10px 22px;flex-wrap:wrap;padding-block:10px}
 .bar p{font-weight:700;font-size:16px}
+.bar .short{display:none}
+@media (max-width:620px){.bar .long{display:none}.bar .short{display:inline}}
 .bar .clock{display:flex;gap:6px;font-variant-numeric:tabular-nums}
 .bar .clock span{background:rgba(255,255,255,.16);border-radius:8px;padding:3px 8px;font-weight:800;font-size:16px;min-width:56px;text-align:center}
 .bar .clock i{font-style:normal;font-weight:500;font-size:12px;opacity:.85;margin-left:3px}
@@ -228,7 +230,7 @@ footer img{width:64px;margin:0 auto 10px;filter:drop-shadow(0 2px 6px rgba(0,0,0
 
 <div class="bar" role="region" aria-label="Registration deadline">
   <div class="wrap">
-    <p data-open>Registration closes Friday, November 20 at 5 PM ET</p>
+    <p data-open><span class="long">Registration closes Friday, November 20 at 5 PM ET</span><span class="short">Registration closes Fri, Nov 20, 5 PM ET</span></p>
     <p data-closed hidden>Registration for the 2026 summit has closed</p>
     <div class="clock" data-clock aria-hidden="true"><span><b data-u="d">0</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span></div>
     <a class="btn btn-sm" data-checkout href="#">Get my ticket</a>
