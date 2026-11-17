@@ -513,7 +513,7 @@ footer img{width:64px;margin:0 auto 10px;filter:drop-shadow(0 2px 6px rgba(0,0,0
   var url = CHECKOUT;
   try {
     var q = new URLSearchParams(location.search), out = new URLSearchParams();
-    q.forEach(function(v,k){ if(/^(utm_|via$|li_fat_id$|fbclid$|gclid$)/.test(k)) out.set(k,v); });
+    q.forEach(function(v,k){ if(/^(utm_|via$|li_fat_id$|fbclid$|gclid$|coupon_code$)/.test(k)) out.set(k,v); });
     var s = out.toString(); if (s) url += "?" + s;
   } catch(e){}
   document.querySelectorAll("[data-checkout]").forEach(function(a){ a.href = url; a.target = "_blank"; a.rel = "noopener"; });
