@@ -510,9 +510,11 @@ footer img{width:64px;margin:0 auto 10px;filter:drop-shadow(0 2px 6px rgba(0,0,0
 (function(){
   var DEADLINE = Date.parse("2026-11-20T22:00:00Z"); // Fri Nov 20, 5 PM ET
   var CHECKOUT = "https://connectors.circle.so/checkout/connectors-summit-2026";
+  var DEFAULT_COUPON = ""; // set only on the /fb ad page
   var url = CHECKOUT;
   try {
     var q = new URLSearchParams(location.search), out = new URLSearchParams();
+    if (DEFAULT_COUPON) out.set("coupon_code", DEFAULT_COUPON);
     q.forEach(function(v,k){ if(/^(utm_|via$|li_fat_id$|fbclid$|gclid$|coupon_code$)/.test(k)) out.set(k,v); });
     var s = out.toString(); if (s) url += "?" + s;
   } catch(e){}
