@@ -162,6 +162,7 @@ html,body{margin:0;padding:0;background:#fff}
 #cs-invite.cs-closed a.cs-btn[data-checkout],#cs-invite.cs-closed [data-checkout],#cs-invite.cs-closed .cs-eb-long,#cs-invite.cs-closed .cs-eb-short,#cs-invite.cs-closed .cs-final .cs-fine,#cs-invite.cs-closed .cs-price,#cs-invite.cs-closed .cs-buy-l,#cs-invite.cs-closed .cs-once,#cs-invite.cs-closed .cs-left,#cs-invite.cs-closed .cs-boss{display:none!important}
 @media (max-width:860px){#cs-invite .cs-buy{padding:16px}#cs-invite .cs-price{justify-content:center}#cs-invite .cs-price b{font-size:34px}#cs-invite .cs-buy-l{text-align:center}#cs-invite .cs-buy{text-align:center}#cs-invite .cs-eb-clock span{min-width:36px}}
 #cs-invite .cs-mini{margin:16px auto 0;text-align:center}#cs-invite .cs-mini-l{margin:0 0 8px!important;font-size:13px!important;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A3FA0}#cs-invite .cs-mini-c{display:inline-flex;gap:8px}#cs-invite .cs-mini-c span{min-width:54px;background:#F4ECF7;border-radius:10px;padding:7px 6px 5px;display:flex;flex-direction:column;align-items:center}#cs-invite .cs-mini-c b{font-size:22px;line-height:1;color:#6E2C80;font-variant-numeric:tabular-nums}#cs-invite .cs-mini-c i{font-style:normal;font-size:11px;font-weight:700;color:#8A6B94;margin-top:3px}#cs-invite.cs-closed .cs-form,#cs-invite.cs-closed a[href="#cs-top"],#cs-invite.cs-closed .cs-mini{display:none!important}
+#cs-invite .cs-once-wrap{text-align:center;margin:18px 0 -4px}#cs-invite .cs-once-wrap .cs-once{margin:0!important}
 </style>
 </head>
 <body>
@@ -169,7 +170,8 @@ html,body{margin:0;padding:0;background:#fff}
 <div id="cs-invite"><div class="cs-wrap">
   <div class="cs-eb" id="cs-eb" role="region" aria-label="Registration deadline">
     <div class="cs-eb-in">
-      <p class="cs-eb-msg"><span class="cs-eb-dot" aria-hidden="true"></span><strong data-after="Registration for 2026 has closed. Thank you for your interest.">Registration is open while spots last.</strong> <span class="cs-eb-long">The summit sold out the past two years.</span><span class="cs-eb-short">It sold out the past two years.</span></p>
+      <p class="cs-eb-msg"><span class="cs-eb-dot" aria-hidden="true"></span><strong data-after="Registration for 2026 has closed. Thank you for your interest." data-today="Last day: registration closes today at 5 PM ET." data-final-hour="Final hour: registration closes at 5 PM ET.">Registration closes Friday, November 20 at 5 PM ET.</strong> <span class="cs-eb-long">The summit only happens once a year.</span><span class="cs-eb-short">Only happens once a year.</span></p>
+      <div class="cs-eb-clock" aria-hidden="true" hidden><span><b data-u="d">0</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span></div>
     </div>
   </div>
   <section class="cs-hero" id="cs-top">
@@ -181,7 +183,7 @@ html,body{margin:0;padding:0;background:#fff}
         <h1>Sharpen your saw and turn your delivery into your best marketing.</h1>
         <p class="cs-sub">The only summit where connection&nbsp;<em>is</em>&nbsp;the&nbsp;content.</p>
         <div class="cs-buy">
-          <span class="cs-once">Only happens once a year</span>
+          
           <form action="https://app.kit.com/forms/9981380/subscriptions" class="cs-form seva-form formkit-form" method="post" data-sv-form="9981380" data-uid="72a6280e15" data-format="inline" data-version="5" data-options="{&quot;settings&quot;: {&quot;after_subscribe&quot;: {&quot;action&quot;: &quot;redirect&quot;, &quot;success_message&quot;: &quot;Got it. Taking you to registration now.&quot;, &quot;redirect_url&quot;: &quot;https://connectors.circle.so/checkout/connectors-summit-2026?coupon_code=LUCKY2BILL&quot;}, &quot;analytics&quot;: {}, &quot;powered_by&quot;: {&quot;show&quot;: false, &quot;url&quot;: &quot;&quot;}, &quot;recaptcha&quot;: {&quot;enabled&quot;: false}, &quot;return_visitor&quot;: {&quot;action&quot;: &quot;show&quot;, &quot;custom_content&quot;: &quot;&quot;}}, &quot;version&quot;: &quot;5&quot;}">
             <div data-style="clean">
               <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
@@ -194,6 +196,7 @@ html,body{margin:0;padding:0;background:#fff}
               </div>
             </div>
           </form>
+          <div class="cs-once-wrap"><span class="cs-once">Only happens once a year</span></div>
           <div class="cs-mini" aria-label="Time left to register"><p class="cs-mini-l">Registration closes in</p><div class="cs-mini-c"><span><b data-u="d">0</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span></div></div>
         </div>
       </div>
@@ -437,6 +440,7 @@ html,body{margin:0;padding:0;background:#fff}
   var END=Date.parse("2026-11-20T22:00:00Z"); /* Fri Nov 20, 5 PM ET */
   var q=function(sel){return root.querySelectorAll(sel);};
   var clock=root.querySelector('.cs-eb-clock'), dock=document.getElementById('cs-dock');
+  var units={}; q('.cs-eb-clock b').forEach(function(b){units[b.getAttribute('data-u')]=b;});
   var minis=q('.cs-mini-c b');
   var pad=function(n){return (n<10?'0':'')+n;};
   /* Show the deadline in the visitor's own time zone when it differs from ET */
@@ -457,6 +461,7 @@ html,body{margin:0;padding:0;background:#fff}
     if(left<=0){close();return false;}
     var t=Math.floor(left/1000), dd=Math.floor(t/86400), h=Math.floor(t%86400/3600), m=Math.floor(t%3600/60), sec=t%60;
     var v={d:String(dd),h:pad(h),m:pad(m),s:pad(sec)};
+    for(var k in v){ if(units[k] && last[k]!==v[k]){units[k].textContent=v[k]; units[k].classList.remove('tick'); void units[k].offsetWidth; units[k].classList.add('tick'); last[k]=v[k];} }
     minis.forEach(function(b){ var k=b.getAttribute('data-u'); if(b.textContent!==v[k]) b.textContent=v[k]; });
     var short=dd>0?(dd+'d '+h+'h left.'):(h>0?(h+'h '+pad(m)+'m left.'):(m+'m '+pad(sec)+'s left.'));
     q('.cs-left').forEach(function(el){el.hidden=false;el.textContent='('+short.replace(' left.','')+' left.)';});
@@ -465,7 +470,7 @@ html,body{margin:0;padding:0;background:#fff}
     if(s2!==stage){ stage=s2; if(s2) q('[data-'+s2+']').forEach(function(el){el.textContent=el.getAttribute('data-'+s2);}); }
     return true;
   }
-  if(tick()){ var iv=setInterval(function(){ if(!tick()) clearInterval(iv); },1000); }
+  if(tick()){ if(clock) clock.hidden=false; var iv=setInterval(function(){ if(!tick()) clearInterval(iv); },1000); }
   /* Floating reminder: show it only when no ticket button is already on screen */
   if(dock && 'IntersectionObserver' in window){
     var watch=[root.querySelector('#cs-eb'),root.querySelector('.cs-buy'),root.querySelector('.cs-final'),root.querySelector('.cs-wait'),root.querySelector('.cs-footer')];
