@@ -484,7 +484,25 @@ html,body{margin:0;padding:0;background:#fff}
   }
 })();
 </script>
-<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+<script>
+/* Kit form: send the signup to Kit ourselves, then go straight to the LUCKY2BILL checkout.
+   (Kit's own ck.js ignores the page's redirect and uses the form's setting in Kit, which pointed elsewhere.) */
+(function(){
+  var f=document.querySelector('#cs-invite .cs-form'); if(!f) return;
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var btn=f.querySelector('.formkit-submit'); if(btn){ if(btn.hasAttribute('data-active')) return; btn.setAttribute('data-active',''); }
+    var dest;
+    try{ dest=JSON.parse(f.getAttribute('data-options')).settings.after_subscribe.redirect_url; }catch(e){}
+    if(!dest) dest="https://connectors.circle.so/checkout/connectors-summit-2026?coupon_code=LUCKY2BILL";
+    var gone=false, go=function(){ if(gone) return; gone=true; window.location.href=dest; };
+    try{
+      fetch(f.action,{method:'POST',mode:'no-cors',body:new FormData(f),keepalive:true}).then(go,go);
+    }catch(e){ go(); }
+    setTimeout(go,2500);
+  });
+})();
+</script>
 
 </body>
 </html>
